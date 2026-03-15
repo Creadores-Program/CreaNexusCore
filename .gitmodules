@@ -13,3 +13,9 @@
 [submodule "ClassiCube"]
 	path = ClassiCube
 	url = https://github.com/Creadores-Program/Barrel-CREA-Classic
+[submodule "McPocket-0_15_x-java"]
+	path = McPocket-0_15_x-java
+	url = https://github.com/Creadores-Program/DragonProxyPocket.git
+[submodule "McPocket-0_15_x"]
+	path = McPocket-0_15_x
+	url = https://github.com/Creadores-Program/Craftsmine.git
