@@ -19,3 +19,6 @@
 [submodule "McPocket-0_15_x"]
 	path = McPocket-0_15_x
 	url = https://github.com/Creadores-Program/Craftsmine.git
+[submodule "Discord"]
+	path = Discord
+	url = https://github.com/PetteriM1/DiscordChat.git
