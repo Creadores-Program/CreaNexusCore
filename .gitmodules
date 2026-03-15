@@ -1,0 +1,15 @@
+[submodule "Core"]
+	path = Core
+	url = https://github.com/MemoriesOfTime/Nukkit-MOT.git
+[submodule "McJava"]
+	path = McJava
+	url = https://github.com/ViaVersion/ViaProxy.git
+[submodule "McBeta"]
+	path = McBeta
+	url = https://github.com/ViaVersionAddons/ViaProxyBeta2Release
+[submodule "EaglerCraft"]
+	path = EaglerCraft
+	url = https://github.com/ayunami2000/ayunViaProxyEagUtils
+[submodule "ClassiCube"]
+	path = ClassiCube
+	url = https://github.com/Creadores-Program/Barrel-CREA-Classic
