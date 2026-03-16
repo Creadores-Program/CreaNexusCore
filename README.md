@@ -50,7 +50,7 @@ We understand that not every hosting environment allows you to modify the Java s
 - **How it works**: This specialized .jar bypasses command-line argument requirements, enabling the proxy to initiate successfully in environments where you only have access to a "Start" button or a standard JAR selector.
 - **Best for**: Shared hostings, pre-configured game panels, and quick deployment scenarios where command-line control is unavailable.
 
-(ViaProxyNoCommandRun)[https://github.com/Creadores-Program/ViaProxyNoCommandRun]
+[ViaProxyNoCommandRun](https://github.com/Creadores-Program/ViaProxyNoCommandRun)
 
 ### Configuration for CreaNexusCore
 ViaProxy must be linked to your **Nukkit MOT** instance (ip and port, ViaBedrock mode) to successfully bridge these versions.
@@ -70,7 +70,7 @@ We bridge the browser-based world of **EaglerCraft** (v1.5.2 and v1.8.8) directl
 - **WebSocket Support**: Seamlessly handles ws:// connections.
 - **Dual-Version Support**: Compatible with both 1.5.2 and 1.8.8 EaglerCraft clients.
 - **Smart Passthrough**: Supports legacy passthrough and ProtocolSupport, ensuring compatibility even if the backend server does not natively support older protocols.
-  [!NOTE]
+>  [!NOTE]
   Please be aware that custom skin files are excluded from this bridge.
 
 ## 💬 Community Bridge: Discord Integration
@@ -80,3 +80,33 @@ To maintain a unified community, **CreaNexusCore** includes a native **DiscordCh
 - **Two-Way Sync**: Messages sent in the game are relayed to a specified Discord channel, and messages from that channel are broadcasted in the game.
 - **Bot-Driven**: Powered by a dedicated Discord bot configured within your Nukkit MOT instance.
 - **Management**: Real-time visibility of server activity, player joins/leaves, and chat logs directly from your server's Discord hub.
+
+## 🔧 ClassiCube Integration: Barrel Crea Classic
+To extend CreaNexusCore into the classic sandbox era, we have integrated Barrel Crea Classic. This is a specialized fork of BarrelMC (the predecessor to ViaProxy), heavily modified to support the unique requirements of the ClassiCube protocol.
+
+- **The Bridge Architecture**: By leveraging the logic of ViaBedrock (Geyser Reverse) and the re-architected Java-to-ClassiCube translation layer, Barrel Crea Classic allows legacy-style sandbox clients to interact with our modern server ecosystem.
+- **Protocol Restructuring**: The core has been modified to restructure standard Java packets into the ClassiCube protocol format, effectively allowing seamless communication between your backend and the ClassiCube client.
+- **Status**: Currently in "Experimental." While the handshake and chat preview are functional, we are actively working on resolving occasional byte-stream packet errors to ensure a stable connection.
+
+## 📱 Minecraft Pocket Edition (PE) 0.15.x Integration
+We provide two distinct pathways to bridge legacy MCPE 0.15.x clients into the **CreaNexusCore** ecosystem, allowing administrators to choose between stability and native translation depth.
+
+1. **The DragonProxyPocket Path (Java Bridge Experimental)**
+  - **Method**: Utilizes an older **GeyserMC** implementation via **DragonProxyPocket**.
+  - **Workflow**: DragonProxy routes players through a Java 1.8 interface, which is then proxied into the **Nukkit** MOT core.
+  - **Pros/Cons**: This is currently our most stable method for production environments. While it offers superior connectivity, please be aware that the translation layer may occasionally encounter edge-case rendering bugs or entity desyncs due to the protocol conversion depth.
+2. **The CraftsMine Path (Native Experimental)**
+  - **Method**: Utilizes CraftsMine, a specialized fork of BarrelMC.
+  - **Workflow**: This implementation bypasses the Java translation layer, attempting to pipe Pocket 0.15 protocol packets directly into the backend architecture.
+  - **Pros/Cons**: Designed as a "closer-to-metal" approach, it offers potentially better performance in specific scenarios. However, it is currently in an early Alpha state. Users should expect frequent console warnings/errors and a significantly higher RAM overhead compared to the DragonProxy method. Recommended for testing and development purposes only.
+
+## 🧱 World & Storage Architecture: The Anvil Requirement
+To maintain maximum cross-version compatibility within **CreaNexusCore**, we strongly recommend utilizing the **Anvil world** format for your backend **Nukkit MOT** instances.
+
+### Why Anvil?
+While newer engines often push for transition to flatter, more modern formats, the **Anvil** format remains the "lingua franca" of Minecraft's history. By sticking to Anvil, you ensure that:
+- **Legacy Translation**: Older clients (especially Java Alpha/Beta and PE 0.15.x) can interpret chunk data more reliably.
+- **Reduced Overhead**: It avoids constant heavy-duty conversion processes when bridging between legacy and modern protocols.
+- **Data Integrity**: Anvil provides a stable, predictable structure for our multi-protocol translation layers (**ViaProxy** and **Barrel/CraftsMine**) to hook into, significantly reducing "ghost chunks" or rendering errors.
+
+**💡 Pro-Tip**: If you are hosting a multi-protocol server, avoid using newer, non-standard world formats (such as specific internal Bedrock formats or experimental flat-files) as your primary world directory. This will almost certainly lead to packet translation failures for legacy clients.
