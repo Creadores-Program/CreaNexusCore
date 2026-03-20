@@ -14,6 +14,7 @@ These integrations are functional but may still have edge-case bugs.
 - **Minecraft (NetEase Edition)**: Functional bridge.
 - **EaglerCraft**: Fully integrated.
 - **Discord Chat**: Stable connectivity.
+- **Minecraft Console Edition (Legacy)**: Semi-stable support for Xbox 360, PS3, Wii U, and early PS4/Xbox One versions via VoxelBridge.
 
 ### ⚠️ Experimental / W.I.P.
 These implementations are currently in a testing phase or have limited functionality.
@@ -72,6 +73,19 @@ We bridge the browser-based world of **EaglerCraft** (v1.5.2 and v1.8.8) directl
 - **Smart Passthrough**: Supports legacy passthrough and ProtocolSupport, ensuring compatibility even if the backend server does not natively support older protocols.
 >  [!NOTE]
   Please be aware that custom skin files are excluded from this bridge.
+
+## 🎮 Minecraft Console Edition (Legacy) Integration: VoxelBridge
+We provide compatibility for the **Legacy Console Edition** of Minecraft (Xbox 360, PS3, Wii U, etc.) through a specialized bridging layer. This allows controllers and consoles from the previous generation to join the **CreaNexusCore** ecosystem.
+
+### The Connection Pipeline
+To ensure proper protocol translation and prevent stability issues, the connection must follow this specific route:
+1. **Console Client**: The console connects to the **VoxelBridge** proxy.
+2. **VoxelBridge**: Acts as the initial interpreter for the Console Edition protocol.
+3. **ViaProxy**: VoxelBridge **must** be configured to point towards our **ViaProxy** instance.
+4. **Nukkit MOT**: ViaProxy finally delivers the translated packets to the core.
+
+- **Status**: Semi-Stable. 
+- **Key Requirement**: It is mandatory to daisy-chain **VoxelBridge -> ViaProxy** to resolve version mismatches and ensure that console players are recognized as valid Java-protocol entities before hitting the Bedrock-based core.
 
 ## 💬 Community Bridge: Discord Integration
 To maintain a unified community, **CreaNexusCore** includes a native **DiscordChat**. This plugin synchronizes your in-game chat with your Discord server, ensuring seamless communication between players on the server and players on Discord.
