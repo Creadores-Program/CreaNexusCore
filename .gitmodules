@@ -22,3 +22,6 @@
 [submodule "Discord"]
 	path = Discord
 	url = https://github.com/PetteriM1/DiscordChat.git
+[submodule "McLegacy"]
+	path = McLegacy
+	url = https://github.com/brokiem/voxelbridge.git
