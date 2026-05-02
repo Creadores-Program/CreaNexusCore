@@ -2,7 +2,7 @@
 **CreaNexusCore** is an ambitious, open-source server architecture designed to unify modifiable games and custom-server environments under a single, streamlined ecosystem.
 
 
-Our mission is to bridge the gap between diverse sandbox gaming communities, providing a centralized core that facilitates interoperability, cross-platform management, and modular extensibility for titles such as **Minecraft** (Java, Bedrock, NetEase, etc.), **ClassiCube**, **Luanti** (formerly Minetest), **Hytale**, **Roblox**, **Polytoria**, and more.
+Our mission is to bridge the gap between diverse sandbox gaming communities, providing a centralized core that facilitates interoperability, cross-platform management, and modular extensibility for titles such as **Minecraft** (Java, Bedrock, NetEase, etc.), **ClassiCube**, **Luanti** (formerly Minetest), **Multicraft**, **Hytale**, **Roblox**, **Polytoria**, and more.
 
 ## 🌍 Supported Ecosystems & Status
 We track the progress of each engine and protocol bridge. Contributions, bug reports, and pull requests are highly encouraged for items marked as "Experimental" or "In Development."
@@ -113,14 +113,5 @@ We provide two distinct pathways to bridge legacy MCPE 0.15.x clients into the *
   - **Method**: Utilizes CraftsMine, a specialized fork of BarrelMC.
   - **Workflow**: This implementation bypasses the Java translation layer, attempting to pipe Pocket 0.15 protocol packets directly into the backend architecture.
   - **Pros/Cons**: Designed as a "closer-to-metal" approach, it offers potentially better performance in specific scenarios. However, it is currently in an early Alpha state. Users should expect frequent console warnings/errors and a significantly higher RAM overhead compared to the DragonProxy method. Recommended for testing and development purposes only.
-
-## 🧱 World & Storage Architecture: The Anvil Requirement
-To maintain maximum cross-version compatibility within **CreaNexusCore**, we strongly recommend utilizing the **Anvil world** format for your backend **Nukkit MOT** instances.
-
-### Why Anvil?
-While newer engines often push for transition to flatter, more modern formats, the **Anvil** format remains the "lingua franca" of Minecraft's history. By sticking to Anvil, you ensure that:
-- **Legacy Translation**: Older clients (especially Java Alpha/Beta and PE 0.15.x) can interpret chunk data more reliably.
-- **Reduced Overhead**: It avoids constant heavy-duty conversion processes when bridging between legacy and modern protocols.
-- **Data Integrity**: Anvil provides a stable, predictable structure for our multi-protocol translation layers (**ViaProxy** and **Barrel/CraftsMine**) to hook into, significantly reducing "ghost chunks" or rendering errors.
 
 **💡 Pro-Tip**: If you are hosting a multi-protocol server, avoid using newer, non-standard world formats (such as specific internal Bedrock formats or experimental flat-files) as your primary world directory. This will almost certainly lead to packet translation failures for legacy clients.
