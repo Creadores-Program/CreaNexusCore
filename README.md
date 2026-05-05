@@ -15,16 +15,16 @@ These integrations are functional but may still have edge-case bugs.
 - **EaglerCraft**: Fully integrated.
 - **Discord Chat**: Stable connectivity.
 - **Minecraft Console Edition (Legacy)**: Semi-stable support for Xbox 360, PS3, Wii U, and early PS4/Xbox One versions via VoxelBridge.
+- **ClassiCube**: Stable connection (currently lacking Inventory, Xbox Auth, and Form support).
 
 ### ⚠️ Experimental / W.I.P.
 These implementations are currently in a testing phase or have limited functionality.
 - **Minecraft PE 0.15.x**: Currently in "Spectator Mode" (Limited rendering; no entity support or terrain generation).
-- **ClassiCube**: Initial connection established (Handshake successful, chat preview active; suffers from occasional byte-stream packet errors).
 
 ### 🏗️ Planned / In Development
 We are currently architecting the protocol bridges for these titles.
 - **Hytale**
-- **Luanti / Minetest**
+- **Luanti / Minetest** (Creanti Coming Soon...)
 - **Roblox**
 - **Polytoria**
 
@@ -100,7 +100,8 @@ To extend CreaNexusCore into the classic sandbox era, we have integrated Barrel 
 
 - **The Bridge Architecture**: By leveraging the logic of ViaBedrock (Geyser Reverse) and the re-architected Java-to-ClassiCube translation layer, Barrel Crea Classic allows legacy-style sandbox clients to interact with our modern server ecosystem.
 - **Protocol Restructuring**: The core has been modified to restructure standard Java packets into the ClassiCube protocol format, effectively allowing seamless communication between your backend and the ClassiCube client.
-- **Status**: Currently in "Experimental." While the handshake and chat preview are functional, we are actively working on resolving occasional byte-stream packet errors to ensure a stable connection.
+- **Status**: Stable. The connection and packet stream are now highly reliable. We have successfully resolved previous byte-stream errors, establishing a consistent gameplay experience. 
+- **Current Development**: We are actively working on implementing the Inventory system, Xbox Authentication bypass, and UI Form support to bring full feature parity to ClassiCube players.
 
 ## 📱 Minecraft Pocket Edition (PE) 0.15.x Integration
 We provide two distinct pathways to bridge legacy MCPE 0.15.x clients into the **CreaNexusCore** ecosystem, allowing administrators to choose between stability and native translation depth.
