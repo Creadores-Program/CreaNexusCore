@@ -16,7 +16,7 @@ These integrations are functional but may still have edge-case bugs.
 - **Discord Chat**: Stable connectivity.
 - **Minecraft Console Edition (Legacy)**: Semi-stable support for Xbox 360, PS3, Wii U, and early PS4/Xbox One versions via VoxelBridge.
 - **ClassiCube**: Stable connection (currently lacking Inventory, Xbox Auth, and Form support).
-- **Luanti / Minetest**: Functional via BridgeTest (Requires a Rust-compatible hosting environment; routes through ViaProxy).
+- **Luanti / Minetest**: Functional via [BridgeTest](https://codeberg.org/l-koehler/bridgetest) (Requires a Rust-compatible hosting environment; routes through ViaProxy).
 
 ### ⚠️ Experimental / W.I.P.
 These implementations are currently in a testing phase or have limited functionality.
@@ -104,17 +104,17 @@ To extend CreaNexusCore into the classic sandbox era, we have integrated Barrel 
 - **Current Development**: We are actively working on implementing the Inventory system, Xbox Authentication bypass, and UI Form support to bring full feature parity to ClassiCube players.
 
 ## 🦎 Luanti / Minetest Integration: BridgeTest
-We extend our crossplay architecture to the open-source voxel world of **Luanti** (formerly Minetest) using **BridgeTest**. This integration allows Luanti clients to interact with our Bedrock-based core by handling external protocol translation.
+We extend our crossplay architecture to the open-source voxel world of **Luanti** (formerly Minetest) using **[BridgeTest](https://codeberg.org/l-koehler/bridgetest)**. This integration allows Luanti clients to interact with our Bedrock-based core by handling external protocol translation.
 
 ### The Connection Pipeline
 To successfully process the movement, chat, and block packets, the traffic must route through the following stack:
-1. **Luanti Client**: Connects directly to the **BridgeTest** proxy.
+1. **Luanti Client**: Connects directly to the **[BridgeTest](https://codeberg.org/l-koehler/bridgetest)** proxy.
 2. **BridgeTest**: Handles the heavy translation from Luanti's native protocol.
-3. **ViaProxy**: BridgeTest **must** be configured to point towards our **ViaProxy** instance.
+3. **ViaProxy**: [BridgeTest](https://codeberg.org/l-koehler/bridgetest) **must** be configured to point towards our **ViaProxy** instance.
 4. **Nukkit MOT**: ViaProxy delivers the final, clean Bedrock packets to the server core.
 
 ### ⚠️ Special Hosting Requirements
-Unlike Java-based utilities, **BridgeTest is compiled in Rust**. Because of this binary architecture:
+Unlike Java-based utilities, **[BridgeTest](https://codeberg.org/l-koehler/bridgetest) is compiled in Rust**. Because of this binary architecture:
 - **Environment Constraints**: It will **not** run on standard shared Minecraft hosts that only support `.jar` files.
 - **Requirements**: You will need a host with full terminal access (VPS, Dedicated Server, or a custom Pterodactyl egg/Docker container) capable of executing native Rust binaries.
 
