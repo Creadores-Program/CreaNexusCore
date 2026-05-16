@@ -25,3 +25,6 @@
 [submodule "McLegacy"]
 	path = McLegacy
 	url = https://github.com/brokiem/voxelbridge.git
+[submodule "bridgetest"]
+	path = Luanti-Minetest
+	url = https://codeberg.org/l-koehler/bridgetest.git
