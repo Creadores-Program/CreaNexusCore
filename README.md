@@ -24,6 +24,7 @@ These implementations are currently in a testing phase or have limited functiona
 
 ### 🏗️ Planned / In Development
 We are currently architecting the protocol bridges for these titles.
+- **ComcraftML**
 - **Hytale**
 - **Roblox**
 - **Polytoria**
